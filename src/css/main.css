@@ -29,3 +29,9 @@ a {
     margin-left: 5px;
     border-radius: 2px;
 }
+
+.breadcrumbs {
+    background-color: #202224;
+    padding: 10px;
+    color: #fff;
+}

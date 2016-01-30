@@ -6,15 +6,27 @@ import DevTools from "../containers/DevTools";
 import { syncHistory, routeReducer } from 'react-router-redux'
 import { Router, Route, browserHistory } from 'react-router'
 
+const reduxRouterMiddleware = syncHistory(browserHistory);
+
 const createStoreWithMiddleware = compose(
-  applyMiddleware(syncHistory(browserHistory)),
+  applyMiddleware(reduxRouterMiddleware),
   DevTools.instrument()
 )(createStore);
 
-const combinedReducer = combineReducers(_.assign({}, reducer, {routing: routeReducer}));
+var combinedReducer = combineReducers(_.assign(
+  {},
+  {counter: reducer},
+  {routing: routeReducer}
+));
 
-const initialState = Immutable.fromJS();
-export default createStoreWithMiddleware(combinedReducer, initialState);
+const initialState = {
+  counter: 4,
+  routing: {}
+};
 
+const store = createStoreWithMiddleware(combinedReducer, initialState);
+reduxRouterMiddleware.listenForReplays(store);
+
+export default store;
 
 

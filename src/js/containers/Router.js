@@ -11,9 +11,9 @@ export default () => {
 
   return (
     <Router history={browserHistory}>
-      <Route path="/" component={Wrapper} >
-        <Route path="page1" component={Page1}/>
-        <Route path="page2" component={Page2}/>
+      <Route name="App" path="/" component={Wrapper} >
+        <Route name="Page1" path="page1" component={Page1}/>
+        <Route name="Page2" path="page2" component={Page2}/>
       </Route>
     </Router>
   )
