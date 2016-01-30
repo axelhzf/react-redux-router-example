@@ -2,7 +2,7 @@
 
 ## Features
 * [x] react-router + redux
-* [ ] Update title
+* [x] Update title
 * [ ] Breadcrumbs
 * [ ] Load async data on routes
 * [ ] Login
