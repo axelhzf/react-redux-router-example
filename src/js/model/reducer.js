@@ -2,18 +2,7 @@ import { routeReducer } from 'react-router-redux'
 import Immutable from "Immutable";
 import {LOGIN_ERROR, LOGIN_PROCESSING, LOGIN_SUCCESS, LOGOUT_USER} from "../actions/actions"
 
-const initialState = {
-  // logged user
-  user: undefined,
-  loginForm: Immutable.Map({
-    processing: false,
-    error: undefined
-  }),
-  counter: 4,
-  routing: {}
-};
-
-export default (state = initialState, action) => {
+export default (state, action) => {
   const reducer = reducers[action.type];
   if (reducer) {
     return reducer(state, action);

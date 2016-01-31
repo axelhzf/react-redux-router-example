@@ -6,7 +6,7 @@ import DevTools from "../containers/DevTools";
 import { syncHistory, routeReducer } from 'react-router-redux';
 import { Router, Route, browserHistory } from 'react-router';
 import thunk from 'redux-thunk';
-
+import localStorage from "../utils/localStorage";
 
 const reduxRouterMiddleware = syncHistory(browserHistory);
 
@@ -15,8 +15,24 @@ const createStoreWithMiddleware = compose(
   DevTools.instrument()
 )(createStore);
 
-const store = createStoreWithMiddleware(reducer);
+const initialState = _.assign({
+  // logged user
+  user: undefined,
+  loginForm: Immutable.Map({
+    processing: false,
+    error: undefined
+  }),
+  counter: 4,
+  routing: {}
+}, localStorage.readStateFromLocalStorage());
+
+const store = createStoreWithMiddleware(reducer, initialState);
 reduxRouterMiddleware.listenForReplays(store);
+
+// save logged user to local storage
+store.subscribe(() => {
+  localStorage.saveStateToLocalStorage(store.getState());
+});
 
 export default store;
 
