@@ -1,5 +1,5 @@
 import { routeReducer } from 'react-router-redux'
-import Immutable from "Immutable";
+import Immutable from "immutable";
 import {LOGIN_ERROR, LOGIN_PROCESSING, LOGIN_SUCCESS, LOGOUT_USER} from "../actions/actions"
 
 export default (state, action) => {

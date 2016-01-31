@@ -5,5 +5,5 @@
 * [x] Update title
 * [x] Breadcrumbs
 * [x] Login
-* [ ] Authorization
+* [x] Authorization
 * [ ] Load async data on routes

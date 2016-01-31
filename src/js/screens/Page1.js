@@ -3,6 +3,8 @@ import ReactDom from "react-dom";
 import {Link} from "react-router";
 import {connect} from "react-redux";
 
+import IfRoles from "../components/IfRoles";
+
 class Page1 extends React.Component {
 
   render() {
@@ -12,7 +14,11 @@ class Page1 extends React.Component {
         <Link to="/page2">Go to page 2</Link>
 
         <div>Counter: {this.props.counter}</div>
-        <button className="btn" onClick={this.props.increment}>Increment counter</button>
+
+        <IfRoles roles={["ROLE_ADMIN"]}>
+          <button className="btn" onClick={this.props.increment}>Increment counter</button>
+        </IfRoles>
+
       </div>
     )
   }
