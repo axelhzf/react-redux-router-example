@@ -7,7 +7,7 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.js/, loader: 'imports?define=>false' },
+      {test: /\.js/, loader: 'imports?define=>false'},
       {
         test: /\.js$/,
         loader: "babel",
@@ -19,6 +19,10 @@ module.exports = {
       {
         test: /\.css$/,
         loaders: ["style", "css"]
+      },
+      {
+        test: /\.(ttf|eot|svg|woff2?)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: "file-loader"
       }
     ]
   },

@@ -4,7 +4,7 @@
 * [x] react-router + redux
 * [x] Update title
 * [x] Breadcrumbs
-* [ ] Load async data on routes
-* [ ] Login
+* [x] Login
 * [ ] Authorization
+* [ ] Load async data on routes
 * [ ] Nested routes
