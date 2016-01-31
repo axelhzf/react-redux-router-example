@@ -7,4 +7,3 @@
 * [x] Login
 * [ ] Authorization
 * [ ] Load async data on routes
-* [ ] Nested routes

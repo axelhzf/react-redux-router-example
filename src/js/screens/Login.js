@@ -40,18 +40,16 @@ class Login extends React.Component {
   render() {
     const {error, processing} = this.props;
     return (
-      <form onSubmit={this.onSubmit}>
-        <Error error={error}/>
-        <div>
+      <div className="login">
+        <h1>App</h1>
+
+        <form onSubmit={this.onSubmit}>
+          <Error error={error}/>
           <input type="text" placeholder="username" value={this.state.username} onChange={this.onChangeUsername}/>
-        </div>
-        <div>
           <input type="password" placeholder="password" value={this.state.password} onChange={this.onChangePassword}/>
-        </div>
-        <div>
           <Button processing={processing} label="Login"/>
-        </div>
-      </form>
+        </form>
+      </div>
     );
   }
 

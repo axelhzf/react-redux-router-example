@@ -1,8 +1,13 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
     background-color: #FCFBFA;
     color: #333;
+    margin: 0;
 }
 
 input {
@@ -21,6 +26,12 @@ a {
     color: #0074D9;
 }
 
+.content {
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
 .btn {
     font-size: 16px;
     background: #0074D9;
@@ -35,10 +46,23 @@ a {
     background: #ccc;
 }
 
+.main-header {
+    background-color: #fff;
+    display: flex;
+    padding: 10px 20px;
+}
+
+.main-header p {
+    margin: 0;
+}
+
+.main-header .logo {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
 .breadcrumbs {
-    background-color: #202224;
-    padding: 10px;
-    color: #fff;
+    flex: 1;
 }
 
 .error {
@@ -47,4 +71,31 @@ a {
     border: 1px solid #AD0D0D;
     padding: 5px;
     margin-bottom: 10px;
+}
+
+.login {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto
+}
+
+.login h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login form {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.login input {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.login .btn {
+    width: 100%;
 }
