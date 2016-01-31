@@ -39,7 +39,6 @@ class Login extends React.Component {
 
   render() {
     const {error, processing} = this.props;
-
     return (
       <form onSubmit={this.onSubmit}>
         <Error error={error}/>

@@ -7,6 +7,8 @@ import Wrapper from "./Wrapper";
 import Page1 from "./Page1";
 import Page2 from "./Page2";
 import Login from "./Login";
+import LoggedUserWrapper from "./LoggedUserWrapper";
+import Logout from "./Logout";
 
 export default () => {
 
@@ -14,8 +16,13 @@ export default () => {
     <Router history={browserHistory}>
       <Route name="App" path="/" component={Wrapper} >
         <Route name="Login" path="login" component={Login}/>
-        <Route name="Page1" path="page1" component={Page1}/>
-        <Route name="Page2" path="page2" component={Page2}/>
+
+        <Route component={LoggedUserWrapper}>
+          <Route name="Logout" path="logout" component={Logout}/>
+          <Route name="Page1" path="page1" component={Page1}/>
+          <Route name="Page2" path="page2" component={Page2}/>
+        </Route>
+
       </Route>
     </Router>
   )

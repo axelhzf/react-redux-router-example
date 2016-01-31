@@ -1,6 +1,9 @@
+import {push} from "react-router-redux";
+
 export const LOGIN_PROCESSING = "LOGIN_PROCESSING";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_ERROR = "LOGIN_ERROR";
+export const LOGOUT_USER = "LOGOUT_USER";
 
 function loginProcessing() {
   return {type: LOGIN_PROCESSING};
@@ -12,6 +15,10 @@ function loginSuccess(user) {
 
 function loginError(error) {
   return {type: LOGIN_ERROR, error};
+}
+
+function logoutUser() {
+  return {type: LOGOUT_USER}
 }
 
 var users = {
@@ -41,10 +48,18 @@ export function login(username, password) {
       await wait(1000);
       const user = await apiMockLogin(username, password);
       dispatch(loginSuccess(user));
-    } catch(e) {
+      dispatch(push("/page1"));
+    } catch (e) {
       dispatch(loginError(e));
     }
   }
+}
+
+export function logout() {
+  return async (dispatch) => {
+    dispatch(logoutUser());
+    dispatch(push("/login"));
+  };
 }
 
 function wait(ms) {

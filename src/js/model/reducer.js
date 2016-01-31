@@ -1,5 +1,6 @@
 import { routeReducer } from 'react-router-redux'
 import Immutable from "Immutable";
+import {LOGIN_ERROR, LOGIN_PROCESSING, LOGIN_SUCCESS, LOGOUT_USER} from "../actions/actions"
 
 const initialState = {
   // logged user
@@ -28,20 +29,24 @@ const reducers = {
     return {...state, counter: state.counter + 1};
   },
 
-  LOGIN_PROCESSING: (state) => {
+  [LOGIN_PROCESSING]: (state) => {
     const loginForm = state.loginForm.merge({processing: true, error: undefined});
     return {...state, loginForm};
   },
 
-  LOGIN_ERROR: (state, action) => {
+  [LOGIN_ERROR]: (state, action) => {
     const loginForm = state.loginForm.merge({processing: false, error: action.error});
     return {...state, loginForm};
   },
 
-  LOGIN_SUCCESS: (state, action) => {
+  [LOGIN_SUCCESS]: (state, action) => {
     const loginForm = state.loginForm.merge({processing: false, error: undefined});
     const user = Immutable.fromJS(action.user);
     return {...state, loginForm, user};
+  },
+
+  [LOGOUT_USER]: (state) => {
+    return {...state, user: undefined};
   }
 
 };
